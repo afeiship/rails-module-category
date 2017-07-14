@@ -5,7 +5,7 @@ module CategoriesHelper
             content_tag :li do
                 concat content_tag :span, child.name
                 if child.children.any?
-                    concat content_tag :ul , tree_view(child)
+                    concat content_tag :ul , tree_view(child), class:"sub-cate-depth-#{child.depth}"
                 end
             end
         end.join.html_safe
