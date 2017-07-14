@@ -40,8 +40,6 @@ c1.save
 c2.save
 
 
-@parent = Category.new
-@child  = @parent.children.build
 ```
 
 ## resources:
