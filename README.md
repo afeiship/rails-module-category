@@ -40,7 +40,17 @@ c1.save
 c2.save
 
 
+# a1 = Category.find_by_id 1
+# a2 = Category.find_by_id 2
+# a3 = Category.find_by_id 3
+
 ```
+
+## reset data:
+```bash
+rake db:drop && rake db:migrate && rake db:seed
+```
+
 
 ## resources:
 + https://stackoverflow.com/questions/30091996/using-a-parent-child-self-join-in-activerecord

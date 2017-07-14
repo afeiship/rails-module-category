@@ -16,3 +16,12 @@ c2.parent = parent;
 
 c1.save
 c2.save
+
+d1 = Category.new name:'ww1'
+d2 = Category.new name:'ww2'
+
+c2.children << d1
+c2.children << d2
+
+d1.save
+d2.save
