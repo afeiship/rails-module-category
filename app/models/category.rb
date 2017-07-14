@@ -35,6 +35,10 @@ class Category < ApplicationRecord
     nodes
   end
 
+  def self.roots
+    Category.where parent_id: 0
+  end
+
   private
     def fill_model
       self.parent_id = 0 unless self.parent_id
