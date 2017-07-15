@@ -21,5 +21,18 @@ module CategoriesHelper
             end.join.html_safe
         end
     end
-    
+
+    def walk_tree(nodes)
+        unless nodes.any?
+            nodes.each do |node|
+                walk_tree(node)
+            end
+        end
+    end
+
+    def walk_tree_hash
+        return 123
+        # walk_tree Category.roots
+    end
+
 end

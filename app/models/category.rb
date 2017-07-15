@@ -15,18 +15,22 @@ class Category < ApplicationRecord
     node
   end
 
-  # Returns all siblings of the current node.
-  #
-  #   subchild1.siblings # => [subchild2]
   def siblings
     self_and_siblings - [self]
   end
 
-  # Returns all siblings and a reference to the current node.
-  #
-  #   subchild1.self_and_siblings # => [subchild1, subchild2]
   def self_and_siblings
     parent ? parent.children : self.class.roots
+  end
+
+  def descendants
+    children.each_with_object(children.to_a) {|child, arr|
+      arr.concat child.descendants
+    }.uniq
+  end
+
+  def self_and_descendants
+    [self] + descendants
   end
 
   def ancestors
