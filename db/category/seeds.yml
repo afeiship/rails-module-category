@@ -1,0 +1,34 @@
+- :name: root
+  :description: root node
+  :children:
+    - :name: cate2   
+      :description: cate2 desc
+    - :name: cate3
+      :description: cate3 desc
+    - :name: cate4
+      :description: cate4 desc
+    - :name: cate5
+      :description: cate5 desc  
+      :children:
+        - :name: cate6
+          :description: cate6 desc
+        - :name: cate7
+          :description: cate7 desc 
+          :children:
+            - :name: cate8
+              :description: cate8 desc 
+            - :name: cate88
+              :description: cate88 desc 
+
+- :name: root9
+  :description: root9 node
+  :children:
+    - :name: cate10
+      :description: cate10 desc
+    - :name: cate11
+      :description: cate11 desc  
+- :name: root10
+  :description: some thing different
+  :children:
+    - :name: cat10-xx
+      :description: nothing...

@@ -46,9 +46,9 @@ c2.save
 
 ```
 
-## reset data:
+## load categories from YAML file(db/category/seeds.yml):
 ```bash
-rake db:drop && rake db:migrate && rake db:seed
+rake db:categories
 ```
 
 
@@ -61,3 +61,4 @@ rake db:drop && rake db:migrate && rake db:seed
 + https://stackoverflow.com/questions/27210244/recursively-render-tree-in-rails
 + https://stackoverflow.com/questions/4205613/rails-nested-content-tag
 + http://www.cnblogs.com/goody9807/p/5712140.html
++ https://www.leighhalliday.com/tree-structures-in-your-rails-models
