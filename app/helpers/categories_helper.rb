@@ -31,8 +31,7 @@ module CategoriesHelper
     end
 
     def walk_tree_hash
-        return 123
-        # walk_tree Category.roots
+        Category.tree.to_json
     end
 
 end

@@ -39,9 +39,36 @@ class Category < ApplicationRecord
     nodes
   end
 
+
+  # static methods start:
   def self.roots
     Category.where parent_id: 0
   end
+  
+  def self.tree_node (node)
+    hash = node.attributes;
+    if node.children.any?
+      hash[:children] = [];
+      node.children.each_with_index do |item,index|
+        result = item.attributes
+        hash[:children] << result
+        
+        if item.children.any?
+          result[:children] = item.children.map do |child|
+            self.tree_node child
+          end
+        end
+      end
+    end
+    return hash
+  end
+
+  def self.tree
+    roots.map do |root|
+      tree_node(root)
+    end
+  end
+  # static methods end:
 
   private
     def fill_model

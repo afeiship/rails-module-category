@@ -54,6 +54,7 @@ rake db:categories
 
 ## resources:
 + https://github.com/rails/acts_as_tree/blob/master/lib/active_record/acts/tree.rb
++ https://github.com/amerine/acts_as_tree
 + https://stackoverflow.com/questions/30091996/using-a-parent-child-self-join-in-activerecord
 + https://stackoverflow.com/questions/18169204/getting-parent-in-self-referential-model
 + http://guides.rubyonrails.org/association_basics.html#self-joins
