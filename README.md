@@ -50,7 +50,8 @@ c2.save
 ```bash
 rake db:categories
 ```
-
+## preview:
++ http://localhost:3000/categories
 
 ## resources:
 + https://github.com/rails/acts_as_tree/blob/master/lib/active_record/acts/tree.rb

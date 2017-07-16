@@ -22,16 +22,4 @@ module CategoriesHelper
         end
     end
 
-    def walk_tree(nodes)
-        unless nodes.any?
-            nodes.each do |node|
-                walk_tree(node)
-            end
-        end
-    end
-
-    def walk_tree_hash
-        Category.tree.to_json
-    end
-
 end
