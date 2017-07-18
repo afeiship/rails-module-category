@@ -1,9 +1,9 @@
 class Category < ApplicationRecord
 
   # self join:
-  has_many :children, class_name: "Category", inverse_of: :parent, foreign_key: :parent_id
-  belongs_to :parent, class_name: "Category", inverse_of: :children, foreign_key: :parent_id, optional: true
-  
+  has_many :children, class_name: Category, inverse_of: :parent, foreign_key: :parent_id
+  belongs_to :parent, class_name: Category, inverse_of: :children, foreign_key: :parent_id, optional: true
+
   def depth
     ancestors.size
   end
@@ -43,7 +43,7 @@ class Category < ApplicationRecord
   def self.roots
     Category.where parent_id: nil
   end
-  
+
   def self.tree_node (node)
     hash = node.attributes;
     if node.children.any?
@@ -51,7 +51,7 @@ class Category < ApplicationRecord
       node.children.each_with_index do |item,index|
         result = item.attributes
         hash[:children] << result
-        
+
         if item.children.any?
           result[:children] = item.children.map do |child|
             self.tree_node child
@@ -67,5 +67,5 @@ class Category < ApplicationRecord
       tree_node(root)
     end
   end
-  
+
 end
