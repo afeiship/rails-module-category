@@ -23,9 +23,15 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+    @items = Category.all
   end
 
   def update
+    if @item.update allow_params
+      redirect_to @item
+    else
+      render :edit
+    end
   end
 
   def destroy
