@@ -1,5 +1,4 @@
 class Category < ApplicationRecord
-  # before_save :fill_model
 
   # self join:
   has_many :children, class_name: "Category", inverse_of: :parent, foreign_key: :parent_id
@@ -68,10 +67,5 @@ class Category < ApplicationRecord
       tree_node(root)
     end
   end
-  # static methods end:
-
-  private
-    def fill_model
-      self.parent_id = 0 unless self.parent_id
-    end
+  
 end
