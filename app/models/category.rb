@@ -1,8 +1,14 @@
 class Category < ApplicationRecord
 
   # self join:
-  has_many :children, class_name: Category, inverse_of: :parent, foreign_key: :parent_id
-  belongs_to :parent, class_name: Category, inverse_of: :children, foreign_key: :parent_id, optional: true
+  has_many :children, class_name: :Category, foreign_key: :parent_id
+  belongs_to :parent, class_name: :Category, foreign_key: :parent_id
+
+  before_save :default_values
+
+  def default_values
+    self.parent_id ||= 0
+  end
 
   def depth
     ancestors.size
@@ -41,7 +47,7 @@ class Category < ApplicationRecord
 
   # static methods start:
   def self.roots
-    Category.where parent_id: nil
+    Category.where parent_id: 0
   end
 
   def self.tree_node (node)
