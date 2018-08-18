@@ -2,7 +2,7 @@ class Category < ApplicationRecord
 
   # self join:
   has_many :children, class_name: :Category, foreign_key: :parent_id
-  belongs_to :parent, class_name: :Category, foreign_key: :parent_id
+  belongs_to :parent, class_name: :Category, foreign_key: :parent_id, optional: true
 
   before_save :default_values
 
